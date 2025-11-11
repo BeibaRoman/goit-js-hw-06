@@ -1,8 +1,15 @@
-const input = document.getElementById("font-size-control");
-const text = document.getElementById("text");
+const input = document.querySelector("#font-size-control");
+const text = document.querySelector("#text");
 
-text.style.fontSize = input.value + "px";
+// Функція для оновлення розміру
+const updateFontSize = (value) => {
+  text.style.fontSize = `${value}px`;
+};
 
-input.addEventListener("input", (e) => {
-  text.style.fontSize = `${e.currentTarget.value}px`;
+// Початкове значення (на випадок, якщо задане в HTML)
+updateFontSize(input.value);
+
+// Слухаємо зміну повзунка
+input.addEventListener("input", () => {
+  updateFontSize(input.value);
 });

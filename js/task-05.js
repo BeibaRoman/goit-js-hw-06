@@ -1,10 +1,14 @@
-const inputEl = document.getElementById("name-input");
-const nameEl = document.getElementById("name-output");
+const refs = {
+  inputValue: document.querySelector("#name-input"),
+  outputValue: document.querySelector("#name-output"),
+};
 
-inputEl.addEventListener("input", (e) => {
-  nameEl.textContent = e.currentTarget.value;
+refs.inputValue.addEventListener("input", (e) => {
+  const value = e.target.value;
 
-  if (e.currentTarget.value === "") {
-    nameEl.textContent = "Anonymous";
+  refs.outputValue.textContent = value;
+
+  if (value === "") {
+    refs.outputValue.textContent = "Anonymous";
   }
 });
